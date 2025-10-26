@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Font Options - Nicole Arguedas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+        }
+        
+        .font-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .font-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .font-name {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .main-text {
+            font-size: 52px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        
+        .sub-text {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .description {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.6;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 8px;
+            margin-top: 10px;
+            color: #666;
+        }
+        
+        .montserrat { font-family: 'Montserrat', sans-serif; }
+        .bebas { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.03em; }
+        .oswald { font-family: 'Oswald', sans-serif; }
+        .raleway { font-family: 'Raleway', sans-serif; }
+        .poppins { font-family: 'Poppins', sans-serif; }
+        .inter { font-family: 'Inter', sans-serif; }
+        
+        .best { border: 3px solid #4CAF50; position: relative; }
+        .best::before {
+            content: '⭐ RECOMMENDED';
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .select-btn {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 15px;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        .select-btn:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Choose Your Professional Font</h1>
+        
+        <div class="grid">
+            <!-- Montserrat -->
+            <div class="font-card best" onclick="selectFont('montserrat')">
+                <div class="font-name">Option 1: Montserrat</div>
+                <div class="main-text montserrat">Nicole Arguedas</div>
+                <div class="sub-text montserrat" style="font-weight: 400;">Personal Trainer</div>
+                <div class="description">
+                    Clean, modern, and highly professional. Used by major fitness brands. Perfect balance of elegance and strength.
+                    <div>
+                        <span class="tag">Modern</span>
+                        <span class="tag">Professional</span>
+                        <span class="tag">Strong</span>
+                    </div>
+                </div>
+                <button class="select-btn">Select Montserrat</button>
+            </div>
+            
+            <!-- Bebas Neue -->
+            <div class="font-card" onclick="selectFont('bebas')">
+                <div class="font-name">Option 2: Bebas Neue</div>
+                <div class="main-text bebas">NICOLE ARGUEDAS</div>
+                <div class="sub-text bebas" style="font-size: 20px;">PERSONAL TRAINER</div>
+                <div class="description">
+                    Bold, athletic, and commanding. Very popular in fitness industry. Strong visual impact, great for logos.
+                    <div>
+                        <span class="tag">Athletic</span>
+                        <span class="tag">Bold</span>
+                        <span class="tag">Impactful</span>
+                    </div>
+                </div>
+                <button class="select-btn">Select Bebas Neue</button>
+            </div>
+            
+            <!-- Oswald -->
+            <div class="font-card" onclick="selectFont('oswald')">
+                <div class="font-name">Option 3: Oswald</div>
+                <div class="main-text oswald">NICOLE ARGUEDAS</div>
+                <div class="sub-text oswald" style="font-weight: 400;">Personal Trainer</div>
+                <div class="description">
+                    Strong and condensed. Military/athletic feel. Great for headers, very readable and professional.
+                    <div>
+                        <span class="tag">Strong</span>
+                        <span class="tag">Condensed</span>
+                        <span class="tag">Athletic</span>
+                    </div>
+                </div>
+                <button class="select-btn">Select Oswald</button>
+            </div>
+            
+            <!-- Raleway -->
+            <div class="font-card" onclick="selectFont('raleway')">
+                <div class="font-name">Option 4: Raleway</div>
+                <div class="main-text raleway">Nicole Arguedas</div>
+                <div class="sub-text raleway" style="font-weight: 300;">Personal Trainer</div>
+                <div class="description">
+                    Elegant and refined. Luxury fitness vibe. Thin and sophisticated, premium feel.
+                    <div>
+                        <span class="tag">Elegant</span>
+                        <span class="tag">Premium</span>
+                        <span class="tag">Refined</span>
+                    </div>
+                </div>
+                <button class="select-btn">Select Raleway</button>
+            </div>
+            
+            <!-- Poppins -->
+            <div class="font-card" onclick="selectFont('poppins')">
+                <div class="font-name">Option 5: Poppins</div>
+                <div class="main-text poppins">Nicole Arguedas</div>
+                <div class="sub-text poppins" style="font-weight: 400;">Personal Trainer</div>
+                <div class="description">
+                    Friendly and approachable. Modern geometric style. Very popular, great readability.
+                    <div>
+                        <span class="tag">Friendly</span>
+                        <span class="tag">Modern</span>
+                        <span class="tag">Geometric</span>
+                    </div>
+                </div>
+                <button class="select-btn">Select Poppins</button>
+            </div>
+            
+            <!-- Inter (current) -->
+            <div class="font-card" onclick="selectFont('inter')">
+                <div class="font-name">Option 6: Inter (Current)</div>
+                <div class="main-text inter">Nicole Arguedas</div>
+                <div class="sub-text inter" style="font-weight: 400;">Personal Trainer</div>
+                <div class="description">
+                    Clean and minimal. Designed for screens. Maximum readability, neutral and professional.
+                    <div>
+                        <span class="tag">Minimal</span>
+                        <span class="tag">Clean</span>
+                        <span class="tag">Readable</span>
+                    </div>
+                </div>
+                <button class="select-btn">Keep Inter</button>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <button onclick="window.location.href='/'" style="background: white; color: #667eea; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;">
+                ← Back to Main Site
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        function selectFont(fontName) {
+            const fontMap = {
+                'montserrat': 'Montserrat',
+                'bebas': 'Bebas Neue',
+                'oswald': 'Oswald',
+                'raleway': 'Raleway',
+                'poppins': 'Poppins',
+                'inter': 'Inter'
+            };
+            
+            alert(`Selected: ${fontMap[fontName]}!\n\nTell me to apply "${fontMap[fontName]}" and I'll update the site immediately.`);
+        }
+    </script>
+</body>
+</html>

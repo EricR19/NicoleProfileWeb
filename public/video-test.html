@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Test - Nicole Arguedas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        video {
+            width: 100%;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        button {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #333;
+        }
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎥 Video Test - Nicole Training Video</h1>
+        
+        <div class="info">
+            <strong>Testing:</strong> /nicole-video.mp4
+            <br>
+            <strong>Purpose:</strong> Verify video plays correctly before integrating into slideshow
+        </div>
+
+        <video id="testVideo" controls muted>
+            <source src="/nicole-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div>
+            <button onclick="playVideo()">▶️ Play</button>
+            <button onclick="pauseVideo()">⏸️ Pause</button>
+            <button onclick="resetVideo()">⏮️ Reset</button>
+            <button onclick="play5Seconds()">⏱️ Play 5 Seconds</button>
+        </div>
+
+        <div id="status" style="margin-top: 20px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+            <strong>Status:</strong> Ready
+        </div>
+
+        <div id="info" style="margin-top: 10px; font-size: 14px; color: #666;">
+            Duration: <span id="duration">-</span>s | 
+            Current: <span id="current">0</span>s
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('testVideo');
+        const statusDiv = document.getElementById('status');
+        const durationSpan = document.getElementById('duration');
+        const currentSpan = document.getElementById('current');
+
+        // Update info
+        video.addEventListener('loadedmetadata', () => {
+            durationSpan.textContent = video.duration.toFixed(2);
+            statusDiv.innerHTML = '<strong>Status:</strong> ✅ Video loaded successfully!';
+        });
+
+        video.addEventListener('timeupdate', () => {
+            currentSpan.textContent = video.currentTime.toFixed(2);
+        });
+
+        video.addEventListener('error', (e) => {
+            statusDiv.innerHTML = '<strong>Status:</strong> ❌ Error loading video: ' + e.message;
+        });
+
+        function playVideo() {
+            video.play()
+                .then(() => {
+                    statusDiv.innerHTML = '<strong>Status:</strong> ▶️ Playing...';
+                })
+                .catch(err => {
+                    statusDiv.innerHTML = '<strong>Status:</strong> ❌ Play failed: ' + err.message;
+                });
+        }
+
+        function pauseVideo() {
+            video.pause();
+            statusDiv.innerHTML = '<strong>Status:</strong> ⏸️ Paused';
+        }
+
+        function resetVideo() {
+            video.currentTime = 0;
+            video.pause();
+            statusDiv.innerHTML = '<strong>Status:</strong> ⏮️ Reset to start';
+        }
+
+        function play5Seconds() {
+            video.currentTime = 0;
+            video.play()
+                .then(() => {
+                    statusDiv.innerHTML = '<strong>Status:</strong> ⏱️ Playing for 5 seconds...';
+                    setTimeout(() => {
+                        video.pause();
+                        video.currentTime = 0;
+                        statusDiv.innerHTML = '<strong>Status:</strong> ✅ Played 5 seconds and stopped!';
+                    }, 5000);
+                })
+                .catch(err => {
+                    statusDiv.innerHTML = '<strong>Status:</strong> ❌ Play failed: ' + err.message;
+                });
+        }
+
+        // Auto-test on load
+        window.addEventListener('load', () => {
+            console.log('Testing video element...');
+            console.log('Video source:', video.src);
+            console.log('Video readyState:', video.readyState);
+        });
+    </script>
+</body>
+</html>
